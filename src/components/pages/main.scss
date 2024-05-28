@@ -1,0 +1,50 @@
+@import '../../assets/styles/sources/global-vars/variables';
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-color: grey;
+    background-image: url('../../assets/images/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    &__inner {
+        width: 90%;
+        margin: 0px auto;
+    }
+    &__title {
+        text-align: start;
+        padding: 50px 0;
+        font-size: $font-size-header;
+        color: $font-color-primary;
+        font-weight: 700;
+    }
+    &__title > p {
+        border-bottom: $border-size-header solid $font-color-secondary;
+        border-bottom-width: 0;
+    }
+    &__title > p:after {
+        content: ""; /* This is necessary for the pseudo element to work. */ 
+        display: block;
+        text-align: start; /* This will put the pseudo element on its own line. */
+        margin-top: -20px; /* This will center the border. */
+        width: 310px; /* Change this to whatever width you want. */
+        padding-top: 20px; /* This creates some space between the element and the border. */
+        border-bottom: $border-size-header solid $font-color-secondary; /* This creates the border. Replace black with whatever color you want. */
+    }
+    &__calculator-result {
+        display: flex;
+        justify-content: space-around;
+        &__result {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+        }
+    }
+}
+
+
+h1 {
+    font-family: $font-family-base;
+    color: $font-color-primary;
+    margin: 0;
+}

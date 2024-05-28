@@ -1,0 +1,15 @@
+@import '../../assets/styles/sources/global-vars/variables.scss';
+
+button {
+    margin-top: 62px;
+    padding: 12px 20px;
+    color: $font-color-primary;
+    font-size: $font-size-button;
+    background-color: $font-color-secondary;
+    border-radius: 2px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}

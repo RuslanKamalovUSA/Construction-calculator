@@ -1,0 +1,33 @@
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
+
+$font-family-base: 'Helvetica Neue', sans-serif;
+
+$font-color-primary: #FFFFFF;
+$font-color-secondary: #FF5F13;
+$font-color-additional: #FFFEFE;
+
+$tabs-color: rgba(6, 6, 6, 0.34);
+
+$font-size-header: 48px;
+$font-size-secondary: 24px;
+$font-size-button: 18px;
+$font-size-base: 16px;
+
+$font-weight-base: 400;
+$font-weight-secondary: 700;
+
+$line-height-base: 21px;
+$line-height-secondary: 29px;
+$line-height-header: 59px;
+$line-height-header: 49px;
+$border-size-base: 1px;
+$border-size-secondary: 2px;
+$border-size-header: 4px;
+
+$border-bottom: $border-size-base solid $font-color-primary;
+$transperancy-base: 50%;
+$transperancy-secondary: 34%;
+
+$background-linear-gradient-base: 180deg, rgba(167, 167, 172, 0.13) 0%, rgba(29, 29, 53, 0.9) 100%;
+$background-linear-gradient-seondary: #06060657;
+

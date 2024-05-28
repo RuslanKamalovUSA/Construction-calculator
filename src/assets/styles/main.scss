@@ -1,0 +1,9 @@
+@import '../styles/sources/common/reset.scss';
+@import '../styles/sources/global-vars/variables';
+    
+body {
+    font-family: $font-family-base;
+    color: $font-color-primary;
+    
+}
+

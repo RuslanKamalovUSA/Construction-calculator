@@ -1,0 +1,147 @@
+@import '../../assets/styles/sources/global-vars/variables.scss';
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 1000px;
+    max-width: 1000px;
+    height: 700px;
+    max-height: 700px;
+    
+    &__inner {
+        width: 100%;
+        margin: 0px auto;
+        background-color: rgb(27, 25, 25);
+        height: 700px;
+
+    }
+
+    &__tabs {
+        display: flex;
+        flex-direction: row;
+        height: 50px;
+        max-height: 50px;
+        width: 100%;
+        font-size: $font-size-button;
+        color: $font-color-primary;
+        &__tab-one {
+            width: 240px;
+            max-width: 240px;
+            background-color: $tabs-color;
+            &__active {
+                border-bottom: 2px solid orange;
+            }
+        }
+        &__tab-two {
+            width: 240px;
+            max-width: 240px;
+            background-color: $tabs-color;
+            &__active {
+                border-bottom: 2px solid $font-color-secondary;
+            }
+        }
+        :hover {
+            cursor: pointer;
+        }
+    }
+
+    &__parametrs {
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__title-height {
+        margin-top: 50px;
+        margin-bottom: 36px;
+        width: 405px;
+        max-width: 405px;
+        display: flex;
+        justify-content: space-between;
+        &__label {
+            width: 70%;
+            text-align: start;
+        }
+        &__input > input {
+            width: 66px;
+            max-width: 66px;
+            background: rgba(0, 0, 0, 0);  
+            border: none;
+            outline: none;
+            border-bottom: $border-bottom;
+        }
+        
+    }
+    
+
+    &__list > p {
+        width: 450px;
+        margin-bottom: 40px;
+        font-size: $font-size-secondary;
+        text-align: start;
+    }
+    
+    
+
+    &__calculator__title-height {
+        width: 405px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    
+    &__calculator__title-rooms {
+        width: 344px;
+        height: 100px;
+    }
+    }
+
+    &__extra {
+        width: 95%;
+        margin: 0 auto;
+        text-align: start;
+        padding-right: 160px;
+    }
+
+    &__extra > ul{
+        color: $font-color-secondary;
+    }
+    &__extra > li{
+        list-style-position: outside;
+    }
+}
+
+.input-height {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 66px;
+}
+
+.grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 405px 405px;
+    grid-template-rows: repeat(0, 0px);
+    column-gap: 90px;
+}
+.grid-item {
+    margin-bottom: 25px;
+    list-style-type: none;
+    text-align: start;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-item > p {
+    display: inline-block;
+}
+h4 {
+    margin-top: 10px;
+}
+
+
