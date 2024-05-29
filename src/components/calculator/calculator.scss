@@ -7,7 +7,7 @@
     width: 1000px;
     max-width: 1000px;
     height: 700px;
-    max-height: 700px;
+    max-height: 701px;
     
     &__inner {
         width: 100%;
@@ -25,21 +25,13 @@
         width: 100%;
         font-size: $font-size-button;
         color: $font-color-primary;
-        &__tab-one {
+        
+        &__tab{
             width: 240px;
             max-width: 240px;
             background-color: $tabs-color;
-            &__active {
-                border-bottom: 2px solid orange;
-            }
-        }
-        &__tab-two {
-            width: 240px;
-            max-width: 240px;
-            background-color: $tabs-color;
-            &__active {
-                border-bottom: 2px solid $font-color-secondary;
-            }
+            color: $font-color-primary;
+            padding: 16px 25px;  
         }
         :hover {
             cursor: pointer;
@@ -144,4 +136,7 @@ h4 {
     margin-top: 10px;
 }
 
-
+.active {
+    border-bottom: $border-bottom-two;
+    
+}

@@ -8,11 +8,11 @@ const Calculator = () => {
             <div className="calculator">
                 <div className="calculator__inner">
                     <div className="calculator__tabs">
-                        <div className="calculator__tabs__tab-one">
-                            <h4>Площадь помещения</h4>
+                        <div className="calculator__tabs__tab active">
+                            <p>Площадь помещения</p>
                         </div>
-                        <div className="calculator__tabs__tab-two">
-                            <h4>Необходимые работы</h4>
+                        <div className="calculator__tabs__tab">
+                            <p>Необходимые работы</p>
                         </div>
                     </div>
                     <div className="calculator__parametrs">
