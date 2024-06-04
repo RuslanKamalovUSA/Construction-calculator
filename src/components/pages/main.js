@@ -11,11 +11,11 @@
             <div className='container'>
                 <div className="container__inner">
                     <div className="container__title">
-                        <p>Калькулятор стоимости ремонта</p>
+                        <h1>КАЛЬКУЛЯТОР СТОИМОСТИ РЕМОНТА</h1>
                     </div>
-                    <div className="container__calculator-result">
+                    <div className="container__calculator">
                         <Calculator></Calculator>
-                        <div className="container__calculator-result__result">
+                        <div className="container__result">
                             <ResultPanel></ResultPanel>
                         </div>
                     </div>

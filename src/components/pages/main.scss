@@ -22,16 +22,18 @@
         border-bottom: $border-size-header solid $font-color-secondary;
         border-bottom-width: 0;
     }
-    &__title > p:after {
+    &__title > h1:after {
+        position: absolute;
         content: ""; /* This is necessary for the pseudo element to work. */ 
         display: block;
         text-align: start; /* This will put the pseudo element on its own line. */
-        margin-top: -20px; /* This will center the border. */
-        width: 310px; /* Change this to whatever width you want. */
-        padding-top: 20px; /* This creates some space between the element and the border. */
+        //margin-top: -20px; /* This will center the border. */
+        width: 355px; /* Change this to whatever width you want. */
+        //padding-top: 20px; /* This creates some space between the element and the border. */
         border-bottom: $border-size-header solid $font-color-secondary; /* This creates the border. Replace black with whatever color you want. */
+        top: 105px;
     }
-    &__calculator-result {
+    &__calculator {
         display: flex;
         justify-content: space-around;
         &__result {
@@ -45,6 +47,7 @@
 
 h1 {
     font-family: $font-family-base;
+    font-size: $font-size-header;
     color: $font-color-primary;
     margin: 0;
 }

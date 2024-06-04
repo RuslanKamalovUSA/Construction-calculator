@@ -4,7 +4,7 @@ import './button.scss';
 
 const Button = () => {
     return (
-        <div>
+        <div  className='button'>
             <button>
                 Войти как администратор
             </button>
