@@ -1,3 +1,4 @@
+
 .calculator {
     display: flex;
     flex-direction: column;
@@ -26,6 +27,27 @@
         }
     }
 
+    &__input-height {
+        width: 66px;
+        max-width: 66px;
+        background: rgba(0, 0, 0, 0);  
+        border: none;
+        outline: none;
+        border-bottom: $border-bottom;
+    }
+
+    &__calculator__title-height {
+        width: 405px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+    
+    }    
+    &__calculator__title-rooms {
+        width: 344px;
+        height: 100px;
+    }
     &__label {
         width: 70%;
         text-align: start;
@@ -60,7 +82,5 @@
     }
     &__notes-list{
         list-style-position: outside;
-    }
-
-    
+    } 
 }

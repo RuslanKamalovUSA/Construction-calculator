@@ -18,7 +18,7 @@ const TabRoomsArea = () => {
                     </div>
                 </div>
                 <div className="calculator__list">
-                    <p>Площадь отдельных комнат:</p>
+                    <p><u className='underline-text'>Площадь отдельных комнат:</u></p>
                     <ul className='grid'>
                         <li className='grid-item'>
                         <div className="parametr">
