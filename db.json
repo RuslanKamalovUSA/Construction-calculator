@@ -1,0 +1,120 @@
+{
+    "squares" : [
+    {
+        "name": "Гостинная",
+        "value": 0,
+        "id": "living_room"
+    },
+    {
+        "name": "Коридор №2",
+        "value": 0,
+        "id": "corridor_2"
+    },
+    {
+        "name": "Кухня",
+        "value": 12.5,
+        "id": "kitchen"
+    },
+    {
+        "name": "Спальня",
+        "value": 15.0,
+        "id": "bedroom"
+    },
+    {
+        "name": "Ванная комната",
+        "value": 5.0,
+        "id": "bathroom"
+    },
+    {
+        "name": "Коридор №1",
+        "value": 8.0,
+        "id": "corridor_1"
+    },
+    {
+        "name": "Кладовая",
+        "value": 3.0,
+        "id": "storage"
+    },
+    {
+        "name": "Балкон",
+        "value": 4.5,
+        "id": "balcony"
+    }
+    ],
+    "operations": [
+    {
+      "name": "Демонтаж, зачистка старой отделки",
+      "count": "20",
+      "unit": "грн/м2",
+      "id": "destruction"
+    },
+    {
+      "name": "Откосы оконные",
+      "count": "20",
+      "unit": "грн/м2",
+      "id": "windows"
+    },
+    {
+      "name": "Покраска стен",
+      "count": "50",
+      "unit": "грн/м2",
+      "id": "wall_painting"
+    },
+    {
+      "name": "Укладка плитки",
+      "count": "150",
+      "unit": "грн/м2",
+      "id": "tile_laying"
+    },
+    {
+      "name": "Монтаж гипсокартона",
+      "count": "100",
+      "unit": "грн/м2",
+      "id": "drywall_installation"
+    },
+    {
+      "name": "Шпаклевка стен",
+      "count": "70",
+      "unit": "грн/м2",
+      "id": "wall_putty"
+    },
+    {
+      "name": "Установка дверей",
+      "count": "500",
+      "unit": "грн/шт",
+      "id": "door_installation"
+    },
+    {
+      "name": "Монтаж электрической проводки",
+      "count": "200",
+      "unit": "грн/м2",
+      "id": "electrical_wiring"
+    },
+    {
+      "name": "Установка сантехники",
+      "count": "800",
+      "unit": "грн/шт",
+      "id": "plumbing_installation"
+    },
+    {
+      "name": "Обои",
+      "count": "80",
+      "unit": "грн/м2",
+      "id": "wallpaper"
+    }
+  ],
+    "admins": [
+      {
+        "admin": {
+          "login": "root",
+          "password": "password" 
+        }
+      },
+      {
+        "admin": {
+          "login": "root",
+          "password": "StrongPassword!1" 
+        }
+      }
+  ]
+}

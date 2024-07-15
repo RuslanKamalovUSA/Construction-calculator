@@ -1,10 +1,34 @@
 @import '../styles/sources/common/reset.scss';
 @import '../styles/sources/global-vars/variables';
-    
+
 body {
     font-family: $font-family-base;
     color: $font-color-primary;
-    
+    font: 18px 700 $font-family-base;
+
 }
 
+h3 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
 
+span {
+    color: $font-color-secondary;
+}
+
+ul li::marker {
+    color: $font-color-secondary;
+}
+
+// a {
+//     text-decoration: none;
+//     color: inherit;
+//     border-bottom: none;
+// }
+
+// a::after {
+//     text-decoration: none;
+//     border-bottom: none;
+
+// }
