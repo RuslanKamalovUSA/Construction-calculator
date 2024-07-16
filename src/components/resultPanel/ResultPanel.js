@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import '../services/ExchangeRateService'
+import '../services/CalculatorService'
 import '../resultPanel/resultPanel.scss';
-import ExchangeRateService from '../services/ExchangeRateService';
+import CalculatorService from '../services/CalculatorService';
 
 const ResultPanel = (props) => {
 
@@ -10,7 +10,7 @@ const ResultPanel = (props) => {
     const [priceUAH, setPriceUAH] = useState(price);
     const [priceUSD, setPriceUSD] = useState(0);
 
-    const {getCurrentUAHRate, getCurrentUAHRateProxy, loading, error, cleanError} = ExchangeRateService();
+    const {getCurrentUAHRate, getCurrentUAHRateProxy, loading, error, cleanError} = CalculatorService();
 
     const onRequest = () => {
         getCurrentUAHRateProxy().then(onDataLoaded).catch(error => console.log(error))

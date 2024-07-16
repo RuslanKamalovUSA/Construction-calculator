@@ -2,14 +2,14 @@ import Button from '../button/Button';
 import '../admin-panel/adminPanel.scss';
 import { useEffect, useState, useRef } from 'react';
 import usePricesUpdateForAdmin from '../services/PricesUpdateForAdmin.js';
-import ExchangeRateService from '../services/ExchangeRateService.js';
+import CalculatorService from '../services/CalculatorService.js';
 
 const AdminPanel = () => {
 
     const [operations, setOperations] = useState([]);
     const [value, setValue] = useState(0);
     
-    const {getOperations} = ExchangeRateService();
+    const {getOperations} = CalculatorService();
 
     const onRequest = () => {
         getOperations().then(onLoaded).catch(err => console.log(err))

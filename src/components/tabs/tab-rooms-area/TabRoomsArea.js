@@ -1,13 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 import '../tab-rooms-area/tabRoomsArea.scss';
-import ExchangeRateService from '../../services/ExchangeRateService';
+import CalculatorService from '../../services/CalculatorService';
 
 const TabRoomsArea = () => {
     const [roomsArea, setRoomsArea] = useState([]);
     const [heightValue, setHeightValue] = useState(0)
 
-    const {getRoomsArea, error, loading, cleanError} = ExchangeRateService();
+    const {getRoomsArea, error, loading, cleanError} = CalculatorService();
 
     const onRequest = () => {
         getRoomsArea().then(onDataLoaded).catch(error => console.log(error))

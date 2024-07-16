@@ -5,7 +5,7 @@ import Button from "../button/Button";
 import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 import { Formik } from "formik";
-import ExchangeRateService from "../services/ExchangeRateService";
+import CalculatorService from "../services/CalculatorService";
 const LogInWindow = () => {
 
     const [adminsCredentials, setAdminCredentials] = useState([]); 
@@ -13,7 +13,7 @@ const LogInWindow = () => {
     
     const [isActive, setIsActive] = useState(false); //стэйт для стиля с красной обводкой и дива с месседжем об ошибке в пароле и имени
 
-    const {getAdminsCredentials, error, loading, cleanError} = ExchangeRateService();
+    const {getAdminsCredentials, error, loading, cleanError} = CalculatorService();
 
     const history = useHistory();
 

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import '../tab-services/tabServices.scss';
-import ExchangeRateService from '../../services/ExchangeRateService';
+import CalculatorService from '../../services/CalculatorService';
 
 const TabServices = () => {
     const [operations, setOperations] = useState([]);
 
-    const {getOperations, error, loading, cleanError} = ExchangeRateService();
+    const {getOperations, error, loading, cleanError} = CalculatorService();
 
     const onRequest = () => {
         getOperations().then(onLoaded).catch(err => console.log(err))

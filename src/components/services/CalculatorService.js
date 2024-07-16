@@ -1,6 +1,6 @@
 import { useHttp } from "../../hooks/http.hook";
 
-const ExchangeRateService = () => {
+const CalculatorService = () => {
 
     const {loading, request,  error, cleanError} = useHttp();
 
@@ -64,4 +64,4 @@ const ExchangeRateService = () => {
     };
 }
 
-export default ExchangeRateService;
+export default CalculatorService;
