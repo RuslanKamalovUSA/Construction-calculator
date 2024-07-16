@@ -12,32 +12,32 @@
     },
     {
         "name": "Кухня",
-        "value": 12.5,
+        "value": 0,
         "id": "kitchen"
     },
     {
         "name": "Спальня",
-        "value": 15.0,
+        "value": 0,
         "id": "bedroom"
     },
     {
         "name": "Ванная комната",
-        "value": 5.0,
+        "value": 0,
         "id": "bathroom"
     },
     {
         "name": "Коридор №1",
-        "value": 8.0,
+        "value": 0,
         "id": "corridor_1"
     },
     {
         "name": "Кладовая",
-        "value": 3.0,
+        "value": 0,
         "id": "storage"
     },
     {
         "name": "Балкон",
-        "value": 4.5,
+        "value": 0,
         "id": "balcony"
     }
     ],

@@ -36,9 +36,6 @@ const Calculator = () => {
                 </div>                
                 <div className='calculator__button-inner'>
                     <Button btnName={'Войти как администратор'} switchToRoute={"/login"} onClick={() => {}}></Button>
-                    
-
-                    
                 </div>
             </div>
     );

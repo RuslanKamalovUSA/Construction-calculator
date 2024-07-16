@@ -8,8 +8,6 @@ const AdminPanel = () => {
 
     const [operations, setOperations] = useState([]);
     const [value, setValue] = useState(0);
-    const [focus, setFocus] = useState(false);
-    const [listOfValues, setListOfValues] = useState({})
     
     const {getOperations} = ExchangeRateService();
 
@@ -25,31 +23,27 @@ const AdminPanel = () => {
         onRequest();
     }, [])
 
-    useEffect(() => {
-        console.log(operations);
-    }, [operations])
+    // const inputRef = useRef([]);
 
-    const inputRef = useRef([]);
+    // const onFocus = (e, index) => {
+    //     inputRef.current[index].focus();
+    //     setFocus(true);
+    // }
 
-    const onFocus = (e, index) => {
-        inputRef.current[index].focus();
-        e.target.value = '';
-        setFocus(true);
+    const handleChange = (e, index, typeOfWork) => {
+        setValue(value => e.target.value)
+        handleAddItem(e, index, typeOfWork);
     }
 
-    const handleChange = (e, typeOfWork) => {
-        
-        setValue(e.target.value)
-    }
-
-    const handleAddItem = (e, typeOfWork) => {
+    const handleAddItem = (e, index, typeOfWork) => {
         if ((e.target.value.includes('-')) ) {
             setOperations(operations => operations.map(el => el.id === typeOfWork.id ? {...typeOfWork, count: 0} : el))
-            
+           
         } else {
             setOperations(operations => operations.map(el => el.id === typeOfWork.id ? {...typeOfWork, count: e.target.value === '' ? el.count : e.target.value } : el
             )) 
         }
+        
     }
 
     function renderItems(arr) {
@@ -68,17 +62,17 @@ const AdminPanel = () => {
                     <div className={`admin-window__parametr-input`}>
                         <div>
                         <input
-                            ref={el => inputRef.current[index] = el}
+                            //ref={el => inputRef.current[index] = el}
                             value={typeOfWork.value} 
                             key={typeOfWork.id}
                             className={`admin-window__input-height`} 
-                            type="number" 
-                            //id="height" 
+                            type="number"  
                             step="0.1" 
+                            min={0}
                             placeholder={typeOfWork.count} 
-                            onFocus={e => onFocus(e, index)}
-                            onChange={(e) => handleChange(e, typeOfWork)}
-                            onBlur={(e) => handleAddItem(e, typeOfWork)}></input>
+                            //onFocus={e => onFocus(e, index)}
+                            onChange={(e) => handleChange(e, index, typeOfWork)}
+                            ></input>
                         </div>
                         <div className='admin-window__measurment'>
                             <div><p className='par'>{degree !== undefined ? unitWithDegree : typeOfWork.unit}</p></div>
@@ -105,38 +99,7 @@ const AdminPanel = () => {
                         <h3><u className='admin-window__underline-text'>Установите средний ценник каждой работы:</u></h3>
                     </div>
                     <div className='admin-window__parametrs-prices-inner'>
-
                         {items}
-
-                        {/* <ul className='admin-window__parametrs-prices'>
-                            <li>
-                                <div className='admin-window__parametr-inner'>
-                                <label for="price">Демонтаж, зачистка старой отделки</label>
-                                <div className="admin-window__parametr-input">
-                                    <div>
-                                    <input className="admin-window__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                    </div>
-                                    <div>
-                                    <p className='par'>м2</p>
-                                    </div>
-                                </div>  
-                                </div>
-                            </li>
-                            <li>
-                                <div className='admin-window__parametr-inner'>
-                                <label for="price">Демонтаж, зачистка старой отделки</label>
-                                <div className="admin-window__parametr-input">
-                                    <div>
-                                    <input className="admin-window__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                    </div>
-                                    <div>
-                                    <p className='par'>м2</p>
-                                    </div>
-                                </div>  
-                                </div>
-                            </li>
-                        </ul> */}
-
                     </div>
                         <div className='admin-window__notes-btn'>
                         <div className="admin-window__notes">

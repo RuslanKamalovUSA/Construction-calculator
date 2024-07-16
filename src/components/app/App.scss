@@ -19,32 +19,17 @@
         color: $font-color-primary;
         font-weight: 700;
     }
-    // &__title > p {
-    //     border-bottom: $border-size-header solid $font-color-secondary;
-    //     border-bottom-width: 0;
-    // }
+
     &__title-main::after {
         position: absolute;
         content: ""; /* This is necessary for the pseudo element to work. */ 
         display: block;
         text-align: start; /* This will put the pseudo element on its own line. */
-        //margin-top: -20px; /* This will center the border. */
         width: 355px; /* Change this to whatever width you want. */
-        //padding-top: 20px; /* This creates some space between the element and the border. */
         border-bottom: $border-size-header solid $font-color-secondary; /* This creates the border. Replace black with whatever color you want. */
         top: 105px;
     }
-    // &__title > h1:after {
-    //     position: absolute;
-    //     content: ""; /* This is necessary for the pseudo element to work. */ 
-    //     display: block;
-    //     text-align: start; /* This will put the pseudo element on its own line. */
-    //     //margin-top: -20px; /* This will center the border. */
-    //     width: 355px; /* Change this to whatever width you want. */
-    //     //padding-top: 20px; /* This creates some space between the element and the border. */
-    //     border-bottom: $border-size-header solid $font-color-secondary; /* This creates the border. Replace black with whatever color you want. */
-    //     top: 105px;
-    // }
+
     &__calculator {
         display: flex;
         justify-content: space-between;
@@ -56,35 +41,11 @@
             align-items: start;
         }
     }
-}
 
-
-h1 {
-    font-family: $font-family-base;
-    font-size: $font-size-header;
-    color: $font-color-primary;
-    margin: 0;
-}
-
-.superscript {
-        font-size: 0.75em; /* Размер шрифта для надстрочного текста */
-        vertical-align: super; /* Поднимает текст вверх */
-        color: $font-color-primary;
-        
-}
-
-.secondary {
-    color: $font-color-secondary;
-}
-
-.redBorder {
-    border-bottom: 1px solid red;
-}
-@media screen and (max-width: 499px) {
-    
-    .container {
+    @media screen and (max-width: 499px) {
         width: 499px;
         margin: 0px auto;
+        
         &__title {
             margin: 0 auto;
             display: block;
@@ -97,9 +58,7 @@ h1 {
         }
         &__calculator{
             width: 330px;
-            height: fit-content;
             flex-direction: column;
-            height: fit-content;
             gap: 450px;
             margin: 0 auto;
         }
@@ -107,14 +66,9 @@ h1 {
             margin-top: 60px;
         }
     }
-    
-    
-}
-@media screen and (min-width: 500px) and (max-width: 1050px){
-    .container {
+    @media screen and (min-width: 500px) and (max-width: 1050px){
         width: 100%;
         margin: 0 auto;
-
         &__title {
             margin: 0 auto;
             display: block;
@@ -125,19 +79,22 @@ h1 {
             margin-left: 63px;
             top: 103px;
         }
-        &__inner {
-           
-        }
         &__calculator{
             width: 480px;
             max-width: 480px;
             flex-direction: column;
             justify-content: space-between;
-            height: fit-content;
             gap: 300px;
             margin: 0 auto;
         }
-    }  
+    }
+}
+
+h1 {
+    font-family: $font-family-base;
+    font-size: $font-size-header;
+    color: $font-color-primary;
+    margin: 0;
 }
 
 a {
@@ -151,3 +108,20 @@ a:after {
     border: 2px solid orange;
 
 }
+
+.activeTab {
+    border-bottom: $border-bottom-two;
+    
+}
+
+.superscript {
+        font-size: 0.75em; /* Размер шрифта для надстрочного текста */
+        vertical-align: super; /* Поднимает текст вверх */
+        color: $font-color-primary;
+        
+}
+
+.secondary {               
+    color: $font-color-secondary;
+}
+

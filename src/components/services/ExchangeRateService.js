@@ -17,7 +17,7 @@ const ExchangeRateService = () => {
     }
     
     const getCurrentUAHRateProxy = async () => {
-        const res = fetch(_proxiApi)
+        const res = await fetch(_proxiApi)
         .then((responce) => responce.json())
         .then(data => data.rates.UAH)
         return res;

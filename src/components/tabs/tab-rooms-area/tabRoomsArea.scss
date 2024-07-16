@@ -13,22 +13,12 @@ h3 {
     height: 700px;
     max-height: 701px;
 
-    // &__parametrs {
-    //     width: 90%;
-    //     margin: 0 auto;
-    // }
-
     &__parametr{
         margin-top: 50px;
-        //margin-bottom: 36px;
         width: 405px;
         max-width: 405px;
         display: flex;
         justify-content: space-between;
-
-        // &__checkbox {
-        //     background-color: transparent;
-        // }
     }
     &__list > p {
         width: 450px;
@@ -36,7 +26,6 @@ h3 {
         font-size: $font-size-secondary;
         text-align: start;
     }
-
     &__list-inner {
         width: 100%;
         display: grid;
@@ -44,7 +33,6 @@ h3 {
         grid-template-rows: repeat(0, 0px);
         column-gap: 90px;
     }
-
     &__list-item {
         margin-bottom: 25px;
         list-style-type: none;
@@ -76,7 +64,9 @@ h3 {
     }
     &__input-height:focus {
         border-bottom: 1px solid $font-color-secondary;
-
+    }
+    &__input-height:out-of-range {
+        border-bottom: 1px solid red;
     }
     &__input-height::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -98,7 +88,6 @@ h3 {
         width: 100%;
         margin: 0 auto;
         text-align: start;
-        //padding-right: 160px;
     }
 
     &__notes-list > p{
@@ -107,13 +96,10 @@ h3 {
     }
     &__notes-list{
         list-style-position: outside;
-    } 
-
-}
-
-@media screen and (max-width: 499px) {
-    .calculator{
+    }
+    @media screen and (max-width: 499px) {
         min-width: 330px;
+
         &__parametr {
             width: 300px;
         }
@@ -121,52 +107,39 @@ h3 {
             padding: 15px;
         }
         &__list-inner {
-            grid-template-columns: 300px;
-           
+            grid-template-columns: 300px; 
         }
-        &__list {
-            width: 300px    ;
+        &__list, 
+        &__list > p, 
+        &__notes  {
+            width: 300px;
         }
         &__list > p {
-            width: 300px;
             margin-bottom: 40px;
             font-size: $font-size-secondary;
             text-align: start;
         }
         &__notes {
-            width: 300px;
             padding-right: 0px;
             padding-left: 15px;
         }
     }
     
-}
-
-@media screen and (min-width: 500px) and (max-width: 1050px){
-    .calculator{
+    @media screen and (min-width: 500px) and (max-width: 1050px){
         width: 480px;
-        &__parametr {
-            //width:  700px;
-        }
-        
-        
+
         &__list-inner {
-            grid-template-columns:  450px;
-           
-        }
-        &__list {
-            //width:  700px    ;
+            grid-template-columns: 450px;
         }
         &__list > p {
-            //width:  700px;
-            //margin-bottom: 40px;
             font-size: $font-size-secondary;
             text-align: start;
         }
         &__notes {
-            width:  450px;
+            width: 450px;
             padding-right: 0px;
         }
-    }
-    
+    } 
 }
+
+

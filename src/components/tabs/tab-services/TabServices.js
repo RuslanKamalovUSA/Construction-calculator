@@ -27,13 +27,12 @@ const TabServices = () => {
     }, [operations])
 
     const approveOperation = (el, index) => {
-        //console.log(e.target.value)
         setOperations(operations => operations.map((el, i) => (i === index ? ({...el, approved: !el.approved}) : el)))
     }
     function renderItems(arr) {
         const items = arr.map((typeOfOperation, index) => {
 
-            let degree;
+            let degree;         
             let measurment;
 
             if (typeOfOperation.unit.includes('2')) {
@@ -56,7 +55,7 @@ const TabServices = () => {
                         className="calculator__input-checkbox" 
                         type="checkbox" 
                         id="checkbox" 
-                        checked={typeOfOperation.approved}></input>
+                        checked={typeOfOperation.approved}/>
                     </div>      
                 </li>
             )
@@ -67,14 +66,6 @@ const TabServices = () => {
 
     const listOfOperations = renderItems(operations);
 
-    const View = () => {
-        return (
-            <ul className='calculator__list-services'>
-                {listOfOperations}
-            </ul>
-        )
-    }
-    
     return (
         <div>
             <div className="calculator__parametr">
@@ -85,22 +76,6 @@ const TabServices = () => {
             <div className="calculator__list">
             <ul className='calculator__list-services'>
                 {listOfOperations}
-                {/* <li className='calculator__service-inner'>
-                    <div className="parametr">
-                        <p>Тип работы <span>м2</span></p>
-                    </div>
-                    <div className="calculator__parametr-checkbox">
-                        <input className="calculator__input-checkbox" type="checkbox" id="checkbox" ></input>
-                    </div>      
-                </li>   
-                <li className='calculator__service-inner'>
-                    <div>
-                        <p>Тип работы <span className='calculator__measurement'>м2</span></p>
-                    </div>
-                    <div className="calculator__parametr-checkbox">
-                        <input className="calculator__input-checkbox" type="checkbox" id="checkbox" ></input>
-                    </div>      
-                </li> */}
             </ul>
             </div>
             <div className="calculator__notes">

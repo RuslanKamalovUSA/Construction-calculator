@@ -53,18 +53,19 @@
     &__input-height:focus {
         border-bottom: 1px solid $font-color-secondary;
     }
+
+    &__input-height:out-of-range{
+        border-bottom: 1px solid red;
+    }
+
     &__input-height::-webkit-inner-spin-button {
         -webkit-appearance: none;
     }
     &__measurment {
         display: flex;
         flex-direction: row;
-        //display: inline-block;
     }
-    &__measurment:last-child > span{
-        font-size: 0.75em; /* Размер шрифта для надстрочного текста */
-        vertical-align: super; /* Поднимает текст вверх */
-    }
+    
     &__underline-text {
         text-underline-offset: 5px;
     }
@@ -73,11 +74,15 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-    }
-    &__notes-btn {
-        display: flex;
         justify-content: space-between;
     }
+
+    // &__notes-btn {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     flex-direction: column;
+
+    // }
 
     &__notes-list {
         margin-top: 70px;
@@ -85,97 +90,80 @@
     &__notes-list > p {
         color: $font-color-secondary;
     }
-    
 
-}
-
-@media screen and (min-width: 0px) and (max-width: 350px){
-    .admin-window {
+    @media screen and (max-width: 350px){
         width: 300px;
         padding: 10px;
-        &__parametrs-inner {
-            width: 280px;
-        }
-        &__parametr-inner {
+        &__parametrs-inner, 
+        &__parametr-inner, 
+        &__parametrs-prices{
             width: 280px;
         }
         &__parametrs-prices {
             grid-template-columns: 280px;
-            width: 280px;
         }
         &__notes-btn {
             flex-direction: column;
         }
-        &__notes-list {
-            width: 250px;
-        }
-    }
-}
-
-
-
+        // &__notes-list {
+        //     width: 250px;
+        // }
     
-
-
-
-@media screen and (min-width: 351px) and (max-width: 699px){
-    .admin-window {
+    }
+    
+    @media screen and (min-width: 351px) and (max-width: 699px){
         width: 375px;
         padding: 20px;
-        &__parametrs-inner {
-            width: 335px;
-        }
-        &__parametr-inner {
+        &__parametrs-inner, 
+        &__parametr-inner, 
+        &__parametrs-prices {
             width: 335px;
         }
         &__parametrs-prices {
             grid-template-columns: 335px;
-            width: 335px;
         }
-        &__notes-btn {
-            flex-direction: column;
-        }
+        // &__notes-btn {
+        //     flex-direction: column;
+        // }
     }
     
-    
-}
-
-@media screen and (min-width: 700px) and (max-width: 1050px){
-    .admin-window {
+    @media screen and (min-width: 700px) and (max-width: 1050px){
         width: 600px;
-        //padding: 20px;
         &__parametrs-inner {
             width: 535px;
         }
-        &__parametr-inner {
+        &__parametr-inner, 
+        &__parametrs-prices {
             width: 550px;
         }
         &__parametrs-prices {
             grid-template-columns: 400px;
+        }
+        // &__notes-btn {
+        //     flex-direction: column;
+        // }
+    }
+    
+    @media screen and (min-width: 1050px) and (max-width: 1300px){
+        width: 600px;
+        &__parametrs-inner {
+            width: 535px;
+        }
+        &__parametr-inner, 
+        &__parametrs-prices {
             width: 550px;
         }
+        &__parametrs-prices {
+            grid-template-columns: 400px;
+        }
+        // &__notes-btn {
+        //     flex-direction: column;
+        // }
+    }
+    @media screen and (max-width: 1300px){
         &__notes-btn {
             flex-direction: column;
         }
     }
 }
 
-@media screen and (min-width: 1050px) and (max-width: 1300px){
-    .admin-window {
-        width: 600px;
-        //padding: 20px;
-        &__parametrs-inner {
-            width: 535px;
-        }
-        &__parametr-inner {
-            width: 550px;
-        }
-        &__parametrs-prices {
-            grid-template-columns: 400px;
-            width: 550px;
-        }
-        &__notes-btn {
-            flex-direction: column;
-        }
-    }
-}

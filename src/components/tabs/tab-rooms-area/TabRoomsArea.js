@@ -5,7 +5,6 @@ import ExchangeRateService from '../../services/ExchangeRateService';
 
 const TabRoomsArea = () => {
     const [roomsArea, setRoomsArea] = useState([]);
-    const [value, setValue] = useState([{id: '', value: ''}]);
     const [heightValue, setHeightValue] = useState(0)
 
     const {getRoomsArea, error, loading, cleanError} = ExchangeRateService();
@@ -20,37 +19,37 @@ const TabRoomsArea = () => {
     }   
 
     useEffect(() => {
-        console.log('updated', roomsArea)
-        console.log(value)
-    }, [roomsArea, value])
-
-    useEffect(() => {
         onRequest()   
     }, [])
 
     useEffect(() => {
-        console.log('HEIGHT ======>>>>', heightValue)   
-    }, [heightValue])
-
+        console.log('Heights', heightValue)
+        console.log('roomsArea', roomsArea  )
+    }, [roomsArea, heightValue])
 
     const addHeight = (e) => {
-        setHeightValue(e.target.value)
+        if (e.target.value.includes('-')) {
+            setHeightValue(0)
+        } else {
+            setHeightValue(e.target.value)
+        }
     }
 
-    const inputRefs = useRef([]);
+    // const inputRefs = useRef([]);
 
-    const onFocus = (e, index) => {
-        inputRefs.current[index].focus();
-        e.target.value = '';
-    }
+    // const onFocus = (e, index) => {
+    //     inputRefs.current[index].focus();
+    //     e.target.value = '';
+    // }
 
     const handleChange = (e, index) => {
-        setRoomsArea(roomsArea.map((el, i) => i === index ? {...el, value: Number(e.target.value)} : el))
+        const value = e.target.value.includes('-') ? 0 : e.target.value;
+        setRoomsArea(roomsArea.map((el, i) => i === index ? {...el, value: Number(value)} : el))
     }
 
-    const handleBlur = (e, index) => {
-        setRoomsArea(arr => arr.map((el, i) => i === index ? {...el, value: Number(e.target.value)} : el))
-    }
+    // const handleBlur = (e, index) => {
+    //     setRoomsArea(arr => arr.map((el, i) => i === index ? {...el, value: Number(e.target.value)} : el))
+    // }
 
     function renderItems(arr){
         const items = arr.map((typeOfRoom, index) => {
@@ -61,39 +60,31 @@ const TabRoomsArea = () => {
                         </div>
                         <div className="calculator__title-height">
                             <input 
-                            ref={el => inputRefs.current[index] = el} 
                             value={typeOfRoom.value} 
                             key={typeOfRoom.id} 
-                            className="calculator__input-height" 
                             type="number" 
-                            //  id="height" 
                             step="0.1" 
-                            onFocus={(e) => {onFocus(e, index)}}
-                            placeholder={Number(typeOfRoom.value)} 
-                            onChange={e => {handleChange(e, index)}}
-                            //</div>onBlur={e => handleBlur(e, index)}
-                            ></input>
+                            placeholder={0} 
+                            className="calculator__input-height" 
+                            onChange={e => handleChange(e, index)}
+                            onClick={(e) => e.target.value = ''}
+                            //ref={el => inputRefs.current[index] = el} 
+                            //  id="height" 
+                            //min={0}   
+                            //onFocus={(e) => {onFocus(e, index)}}
+                            //onBlur={e => handleBlur(e, index)}
+                            />
                             <p className='calculator__title-height-par'>м</p>
                             <span className='superscript'>2</span>
+                            
                         </div>  
                     </li>
             )
         })
         return items;
     }
-    // console.log('====>', roomsArea)
     const listOfRoomsAreas = renderItems(roomsArea);
 
-    const View = () => {
-        return (
-            <>
-                <ul className='calculator__list-inner'>
-                    {listOfRoomsAreas}
-                </ul>
-            </>
-        )
-    }
-    
     return (
         <div>
            <div>
@@ -105,14 +96,16 @@ const TabRoomsArea = () => {
                             </div>
                             <div className="calculator__title-height ">
                                 <input 
-                                onClick={(e) => e.target.value === heightValue ? null : e.target.value = ''}
                                 value={heightValue} 
-                                onChange={(e) => {addHeight(e)}} 
-                                className="calculator__input-height" 
                                 type="number" 
                                 id="height" 
-                                step="0.1" 
-                                placeholder={0.0}></input>
+                                step="0.1"
+                                min={0} 
+                                placeholder={0.0}
+                                className="calculator__input-height" 
+                                onChange={(e) => addHeight(e)} 
+                                onClick={(e) => e.target.value === heightValue ? null : e.target.value = ''}
+                                ></input>
                                 <p className='calculator__title-height-par'>м</p>
                                 <span className='superscript'>2</span>
                             </div>  
@@ -123,100 +116,6 @@ const TabRoomsArea = () => {
                     <h3><u className='calculator__underline-text'>Площадь отдельных комнат:</u></h3>
                     <ul className='calculator__list-inner'>
                         {listOfRoomsAreas}
-                        {/* <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li> */}
-
-
-                        {/* <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li>
-                        <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li>
-                        <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li>
-                        <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li>
-                        <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li>
-                        <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li>
-                        <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li>
-                        <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li>
-                        <li className='calculator__list-item'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                                <div className="calculator__title-height">
-                                <input className="calculator__input-height" type="number" id="height" step="0.1" placeholder="0.0"></input>
-                                <p>м2</p>
-                            </div>  
-                        </li> */}
-
-
                     </ul>
                 </div>
                 <div className="calculator__notes">
