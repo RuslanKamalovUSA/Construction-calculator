@@ -1,11 +1,16 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 import '../tab-rooms-area/tabRoomsArea.scss';
 import CalculatorService from '../../services/CalculatorService';
+import { useDispatch, useSelector } from 'react-redux';
 
 const TabRoomsArea = () => {
+
     const [roomsArea, setRoomsArea] = useState([]);
     const [heightValue, setHeightValue] = useState(0)
+
+    const dispatch = useDispatch();
+    const totalArea = useSelector(state => state)
 
     const {getRoomsArea, error, loading, cleanError} = CalculatorService();
 
@@ -13,9 +18,7 @@ const TabRoomsArea = () => {
         getRoomsArea().then(onDataLoaded).catch(error => console.log(error))
     }
     const onDataLoaded = (data) => {
-        console.log('data', data)
         setRoomsArea(data);
-        console.log('roomsArea', roomsArea)
     }   
 
     useEffect(() => {
@@ -23,9 +26,15 @@ const TabRoomsArea = () => {
     }, [])
 
     useEffect(() => {
-        console.log('Heights', heightValue)
-        console.log('roomsArea', roomsArea  )
-    }, [roomsArea, heightValue])
+        console.log(roomsArea)
+        console.log(totalArea)
+    }, [roomsArea, totalArea])
+
+    
+    const calculateArea = (arr) => {
+        const squareArea = arr.reduce((a, b) => (a + b.value), 0) * heightValue;
+        console.log('Area', squareArea);
+    }
 
     const addHeight = (e) => {
         if (e.target.value.includes('-')) {
@@ -35,6 +44,9 @@ const TabRoomsArea = () => {
         }
     }
 
+    const calculateTotalArea = (arr) => {
+       
+    }
     // const inputRefs = useRef([]);
 
     // const onFocus = (e, index) => {
@@ -45,6 +57,11 @@ const TabRoomsArea = () => {
     const handleChange = (e, index) => {
         const value = e.target.value.includes('-') ? 0 : e.target.value;
         setRoomsArea(roomsArea.map((el, i) => i === index ? {...el, value: Number(value)} : el))
+        //console.log("ARR", arr)
+        let roomArea = roomsArea.map(el => el.value).reduce((a, b) => a + b, 0)
+        let name = [roomsArea[index].name]
+        dispatch({type: "ADD_AREA", payload: {[name] : e.target.value}}) 
+        console.log(totalArea)
     }
 
     // const handleBlur = (e, index) => {
@@ -66,13 +83,16 @@ const TabRoomsArea = () => {
                             step="0.1" 
                             placeholder={0} 
                             className="calculator__input-height" 
-                            onChange={e => handleChange(e, index)}
+                            onChange={e => {
+                                handleChange(e, index)
+                                }
+                            }
                             onClick={(e) => e.target.value = ''}
                             //ref={el => inputRefs.current[index] = el} 
                             //  id="height" 
                             //min={0}   
-                            //onFocus={(e) => {onFocus(e, index)}}
-                            //onBlur={e => handleBlur(e, index)}
+                            // onFocus={e => calculateTotalArea(e)}
+                            // onBlur={e => calculateTotalArea(e)}
                             />
                             <p className='calculator__title-height-par'>м</p>
                             <span className='superscript'>2</span>

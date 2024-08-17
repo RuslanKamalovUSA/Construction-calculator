@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 
 import '../tab-services/tabServices.scss';
 import CalculatorService from '../../services/CalculatorService';
+import { useDispatch, useSelector } from 'react-redux';
 
 const TabServices = () => {
     const [operations, setOperations] = useState([]);
-
     const {getOperations, error, loading, cleanError} = CalculatorService();
+
+    const dispatch = useDispatch();
+    const servicesPicked = useSelector(state => state.services)
 
     const onRequest = () => {
         getOperations().then(onLoaded).catch(err => console.log(err))
@@ -21,6 +24,9 @@ const TabServices = () => {
         onRequest();
     }, [])
 
+    const calculation = () => {
+        console.log("CACULATION", operations)
+    }
     //Проверка если данные загрузились в стэйт
     useEffect(() => {
         console.log('operationos loaded to state', operations)
@@ -28,6 +34,8 @@ const TabServices = () => {
 
     const approveOperation = (el, index) => {
         setOperations(operations => operations.map((el, i) => (i === index ? ({...el, approved: !el.approved}) : el)))
+        dispatch({type: "SET_SERVICE", payload: {[operations[index].id]: operations[index].approved}})
+        console.log("SERVICES PICKED", servicesPicked)
     }
     function renderItems(arr) {
         const items = arr.map((typeOfOperation, index) => {
@@ -51,7 +59,10 @@ const TabServices = () => {
                     <div className="calculator__parametr-checkbox">
                         <input 
                         key={typeOfOperation.id}
-                        onClick={() => {approveOperation(typeOfOperation, index)}} 
+                        onClick={() => {
+                            approveOperation(typeOfOperation, index)
+                            calculation()
+                        }} 
                         className="calculator__input-checkbox" 
                         type="checkbox" 
                         id="checkbox" 

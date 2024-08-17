@@ -6,28 +6,28 @@ import LogInWindow from '../login/LogInWindow';
 
 function App() {
   return (
-    <Router>
-      <div className='container'>
-          <div className="container__inner">
-              <div className="container__title">
-              <NavLink to={"/main"}><h1 className='container__title-main'>КАЛЬКУЛЯТОР СТОИМОСТИ РЕМОНТА</h1></NavLink>
-              </div>
-              <Switch>
-                <Route exact path="/main">
-                  <div className="App">
-                    <Main></Main>
-                  </div>
-                </Route>
-                <Route exact path="/admin">
-                  <AdminPanel/>
-                </Route>
-                <Route exact path="/login">
-                  <LogInWindow/>
-                </Route>
-              </Switch>
-          </div>
-      </div>
-    </Router>
+      <Router>
+        <div className='container'>
+            <div className="container__inner">
+                <div className="container__title">
+                <NavLink to={"/main"}><h1 className='container__title-main'>КАЛЬКУЛЯТОР СТОИМОСТИ РЕМОНТА</h1></NavLink>
+                </div>
+                <Switch>
+                  <Route exact path="/main">
+                    <div className="App">
+                      <Main></Main>
+                    </div>
+                  </Route>
+                  <Route exact path="/admin">
+                    <AdminPanel/>
+                  </Route>
+                  <Route exact path="/login">
+                    <LogInWindow/>
+                  </Route>
+                </Switch>
+            </div>
+        </div>
+      </Router>
   );
 }
 
