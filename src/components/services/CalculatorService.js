@@ -6,9 +6,9 @@ const CalculatorService = () => {
 
     const _baseApi = "https://open.er-api.com/v6/latest/USD"; // https://www.exchangerate-api.com/docs/free
     const _proxiApi = "http://localhost:3003/api/rates";
-    const _operations = "http://localhost:3000/operations";
-    const _squares = "http://localhost:3000/squares";
-    const _admins = "http://localhost:3000/admins";
+    const _operations = "http://localhost:3001/operations";
+    const _squares = "http://localhost:3001/squares";
+    const _admins = "http://localhost:3001/admins";
 
     const getCurrentUAHRate = async () => {
         console.log(_baseApi)

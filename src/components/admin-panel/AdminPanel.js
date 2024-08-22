@@ -3,11 +3,15 @@ import '../admin-panel/adminPanel.scss';
 import { useEffect, useState, useRef } from 'react';
 import usePricesUpdateForAdmin from '../services/PricesUpdateForAdmin.js';
 import CalculatorService from '../services/CalculatorService.js';
+import { useDispatch, useSelector } from 'react-redux';
 
 const AdminPanel = () => {
 
     const [operations, setOperations] = useState([]);
     const [value, setValue] = useState(0);
+    
+    const dispatch = useDispatch();
+    const prices = useSelector(state => state.prices)
     
     const {getOperations} = CalculatorService();
 
@@ -16,12 +20,26 @@ const AdminPanel = () => {
     }
 
     const onLoaded = (data) => {
-        setOperations(data)
+        const res = data.map(el => ({...el, count: Number(el.count) }))
+        setOperations(res)
     }
 
     useEffect(() => {
         onRequest();
+        changePrices()
     }, [])
+
+    useEffect(() => {
+        console.log("Operations", operations)
+    }, [operations])
+
+    useEffect(() => {
+        changePrices()
+    }, [operations])
+
+    const changePrices = () => {
+        dispatch({type: "CHANGE_PRICES", payload: operations})
+    }
 
     // const inputRef = useRef([]);
 
@@ -40,7 +58,7 @@ const AdminPanel = () => {
             setOperations(operations => operations.map(el => el.id === typeOfWork.id ? {...typeOfWork, count: 0} : el))
            
         } else {
-            setOperations(operations => operations.map(el => el.id === typeOfWork.id ? {...typeOfWork, count: e.target.value === '' ? el.count : e.target.value } : el
+            setOperations(operations => operations.map(el => el.id === typeOfWork.id ? {...typeOfWork, count: e.target.value === '' ? el.count : Number(e.target.value) } : el
             )) 
         }
         

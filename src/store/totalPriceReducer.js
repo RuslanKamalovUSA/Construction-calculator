@@ -1,20 +1,19 @@
 const initialState  = {
-    totalArea: 0
+    totalArea: [],
+    height: 0
 }
 
-const ADD_AREA = "ADD_AREA";
-const REMOVE_AREA = "REMOVE_AREA";
+const NEW_DATA = "NEW_DATA";
+const ADD_HEIGHT = "ADD_HEIGHT";
 
 const totalPriceReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_AREA: 
-        return { ...state, totalArea: {...state.totalArea, ...action.payload}} 
-        case REMOVE_AREA: 
-        return {...state, totalArea: state.totalArea - action.payload}
+        case NEW_DATA:
+            return {...state, totalArea: action.payload}
+        case ADD_HEIGHT:
+            return {...state, height: action.payload}
         default: 
         return state;
-
-          
     }
 }
 

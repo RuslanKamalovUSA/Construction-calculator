@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import '../tab-services/tabServices.scss';
 import CalculatorService from '../../services/CalculatorService';
 import { useDispatch, useSelector } from 'react-redux';
+import store from '../../../store'
 
 const TabServices = () => {
     const [operations, setOperations] = useState([]);
@@ -11,31 +12,43 @@ const TabServices = () => {
     const dispatch = useDispatch();
     const servicesPicked = useSelector(state => state.services)
 
+
     const onRequest = () => {
         getOperations().then(onLoaded).catch(err => console.log(err))
     }
 
     const onLoaded = (data) => {
-        console.log(data)
         const arr = data.map(el => ({...el, approved: false}))
         setOperations(arr);
     }
     useEffect(() => {
         onRequest();
+        updateData()
     }, [])
 
-    const calculation = () => {
-        console.log("CACULATION", operations)
-    }
     //Проверка если данные загрузились в стэйт
     useEffect(() => {
-        console.log('operationos loaded to state', operations)
+        //console.log('operationos loaded to state', operations)
+        //console.log('1',servicesPicked)
+        updateData()
+        //console.log('2',servicesPicked)
+        //setTimeout(() => console.log('3', servicesPicked), 3000)
     }, [operations])
 
     const approveOperation = (el, index) => {
         setOperations(operations => operations.map((el, i) => (i === index ? ({...el, approved: !el.approved}) : el)))
-        dispatch({type: "SET_SERVICE", payload: {[operations[index].id]: operations[index].approved}})
-        console.log("SERVICES PICKED", servicesPicked)
+        //dispatch({type: "SET_SERVICE", payload: {[operations[index].id]: operations[index].approved}})
+        //console.log("SERVICES PICKED", servicesPicked)
+    }
+
+    const updateData = () => {
+        const data = operations.map(el => ({id: el.id, approved: el.approved}))
+        dispatch({type: 'NEW_DATA_SERVICES', payload: data})
+        //console.log('FROM STORE', servicesPicked)
+        //console.log('========>', store.getState())
+        store.subscribe(() => {
+            console.log("DATA by sub", store.getState())
+          })
     }
     function renderItems(arr) {
         const items = arr.map((typeOfOperation, index) => {
@@ -61,7 +74,6 @@ const TabServices = () => {
                         key={typeOfOperation.id}
                         onClick={() => {
                             approveOperation(typeOfOperation, index)
-                            calculation()
                         }} 
                         className="calculator__input-checkbox" 
                         type="checkbox" 
@@ -78,7 +90,7 @@ const TabServices = () => {
     const listOfOperations = renderItems(operations);
 
     return (
-        <div>
+        <>
             <div className="calculator__parametr">
                 <div className="calculator__header-inner">
                 <h3><u className='calculator__underline-text'>Название необходимых работ:</u></h3>
@@ -96,7 +108,7 @@ const TabServices = () => {
                 <li>рядом с услугой отображена <span>средняя</span> стоимость на текущий момент.Сюда входит работа и материал. Это может быть стоимость за квадратный или погонный метр, усредненная стоимость всей сантехники для ремонта и тд. Итоговый вариант может отличаться от выбранных вами материалов, но калькулятор даст вам понимание о стоимости ремонта среднего качества.</li>
                 </ul>
             </div>
-        </div>
+        </>
     );
 };
 

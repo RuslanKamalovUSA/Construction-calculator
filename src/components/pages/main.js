@@ -1,10 +1,8 @@
 import React from 'react';
 import Calculator from '../calculator/Calculator';
 import ResultPanel from '../resultPanel/ResultPanel';
-import LogInWindow from '../login/LogInWindow';
 
 import './main.scss';
-import AdminPanel from '../admin-panel/AdminPanel';
 
 const Main = () => {
     return (

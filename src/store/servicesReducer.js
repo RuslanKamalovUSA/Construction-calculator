@@ -1,13 +1,13 @@
 const initialState = {
-    services: 0
+    services: []
 }
 
-const SET_PRICE = 'SET_SERVICE'
+const NEW_DATA_SERVICES = 'NEW_DATA_SERVICES'
 
 const servicesReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'SET_SERVICE':
-            return { ...state, services: {...state.services, ...action.payload}}
+        case NEW_DATA_SERVICES: 
+            return {...state, services: [...action.payload]}
         default:
             return state;
     }

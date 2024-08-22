@@ -105,7 +105,7 @@
       "name": "Натяжной/Гипсокартонный потолок",
       "count": "20",
       "unit": "грн/м2",
-      "id": "drywall_installation"
+      "id": "ceiling_installation"
     },
     {
       "name": "Покраска стен",
@@ -117,7 +117,7 @@
       "name": "Покраска потолка",
       "count": "20",
       "unit": "грн/м2",
-      "id": "drywall_paintining"
+      "id": "ceiling_paintining"
     },
     {
       "name": "Шпаклевка потолка",
@@ -129,7 +129,7 @@
       "name": "Плинтус потолочный",
       "count": "20",
       "unit": "грн/м2",
-      "id": "silence_putty"
+      "id": "silence"
     },
     {
       "name": "Откосы оконные",
@@ -177,13 +177,13 @@
       "name": "Вставка межкомнатных дверей",
       "count": "10000",
       "unit": "грн/шт/25м2",
-      "id": "electrical_wiring"
+      "id": "doors"
     },
     {
       "name": "Вставка входной двери",
       "count": "10000",
       "unit": "грн/шт",
-      "id": "plumbing_installation"
+      "id": "door"
     }
     ],
     "admins": [

@@ -15,7 +15,7 @@ function App() {
                 <Switch>
                   <Route exact path="/main">
                     <div className="App">
-                      <Main></Main>
+                      <Main/>
                     </div>
                   </Route>
                   <Route exact path="/admin">

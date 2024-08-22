@@ -23,17 +23,24 @@ const TabRoomsArea = () => {
 
     useEffect(() => {
         onRequest()   
+        updateData()
     }, [])
 
     useEffect(() => {
-        console.log(roomsArea)
-        console.log(totalArea)
-    }, [roomsArea, totalArea])
+        updateData()
+        updateHeight(heightValue)
+    }, [roomsArea, heightValue])
 
+    const updateData = () => {
+        dispatch({type: "NEW_DATA", payload: roomsArea})
+    }
+
+    const updateHeight = (height) => {
+        dispatch({type: "ADD_HEIGHT", payload: height})
+    }
     
     const calculateArea = (arr) => {
         const squareArea = arr.reduce((a, b) => (a + b.value), 0) * heightValue;
-        console.log('Area', squareArea);
     }
 
     const addHeight = (e) => {
@@ -44,9 +51,6 @@ const TabRoomsArea = () => {
         }
     }
 
-    const calculateTotalArea = (arr) => {
-       
-    }
     // const inputRefs = useRef([]);
 
     // const onFocus = (e, index) => {
@@ -106,47 +110,45 @@ const TabRoomsArea = () => {
     const listOfRoomsAreas = renderItems(roomsArea);
 
     return (
-        <div>
-           <div>
-                <div className="calculator__parametr">
-                    <div className='calculator__list-inner'>
-                        <div className='calculator__list-item' id='height-header'>
-                            <div>
-                                <label for="height">Высота потолков в квартире:</label>
-                            </div>
-                            <div className="calculator__title-height ">
-                                <input 
-                                value={heightValue} 
-                                type="number" 
-                                id="height" 
-                                step="0.1"
-                                min={0} 
-                                placeholder={0.0}
-                                className="calculator__input-height" 
-                                onChange={(e) => addHeight(e)} 
-                                onClick={(e) => e.target.value === heightValue ? null : e.target.value = ''}
-                                ></input>
-                                <p className='calculator__title-height-par'>м</p>
-                                <span className='superscript'>2</span>
-                            </div>  
+        <>
+            <div className="calculator__parametr">
+                <div className='calculator__list-inner'>
+                    <div className='calculator__list-item' id='height-header'>
+                        <div>
+                            <label for="height">Высота потолков в квартире:</label>
                         </div>
+                        <div className="calculator__title-height ">
+                            <input 
+                            value={heightValue} 
+                            type="number" 
+                            id="height" 
+                            step="0.1"
+                            min={0} 
+                            placeholder={0.0}
+                            className="calculator__input-height" 
+                            onChange={(e) => addHeight(e)} 
+                            onClick={(e) => e.target.value === heightValue ? null : e.target.value = ''}
+                            ></input>
+                            <p className='calculator__title-height-par'>м</p>
+                            <span className='superscript'>2</span>
+                        </div>  
                     </div>
                 </div>
-                <div className="calculator__list">
-                    <h3><u className='calculator__underline-text'>Площадь отдельных комнат:</u></h3>
-                    <ul className='calculator__list-inner'>
-                        {listOfRoomsAreas}
-                    </ul>
-                </div>
-                <div className="calculator__notes">
-                    <ul className='calculator__notes-list'>
-                    <p>Примечания:</p>
-                    <li>устанавливайте площадь помещений там, где необходим ремонт </li>
-                    <li>если есть дополнительные комнаты, например, Спальня №3, то добавляйте их площадь к существующим в калькуляторе</li>
-                    </ul>
-                </div>
-            </div> 
-        </div>
+            </div>
+            <div className="calculator__list">
+                <h3><u className='calculator__underline-text'>Площадь отдельных комнат:</u></h3>
+                <ul className='calculator__list-inner'>
+                    {listOfRoomsAreas}
+                </ul>
+            </div>
+            <div className="calculator__notes">
+                <ul className='calculator__notes-list'>
+                <p>Примечания:</p>
+                <li>устанавливайте площадь помещений там, где необходим ремонт </li>
+                <li>если есть дополнительные комнаты, например, Спальня №3, то добавляйте их площадь к существующим в калькуляторе</li>
+                </ul>
+            </div>
+        </>
     );
 };
 

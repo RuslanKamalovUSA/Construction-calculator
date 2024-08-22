@@ -96,6 +96,7 @@ h3 {
     }
     &__notes-list{
         list-style-position: outside;
+        font-size: $font-size-extra;
     }
     @media screen and (max-width: 499px) {
         min-width: 330px;
