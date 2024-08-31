@@ -6,7 +6,7 @@ const initialState  = {
 const NEW_DATA = "NEW_DATA";
 const ADD_HEIGHT = "ADD_HEIGHT";
 
-const totalPriceReducer = (state = initialState, action) => {
+const totalAreaReducer = (state = initialState, action) => {
     switch (action.type) {
         case NEW_DATA:
             return {...state, totalArea: action.payload}
@@ -17,4 +17,4 @@ const totalPriceReducer = (state = initialState, action) => {
     }
 }
 
-export default totalPriceReducer;
+export default totalAreaReducer;
