@@ -68,6 +68,7 @@ const ResultPanel = (props) => {
     }
 
     function formule(height, square, count, id, tileArea){
+        
         switch (id) {
             case 'destruction': 
                 return square * count;

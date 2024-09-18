@@ -34,7 +34,6 @@
         display: flex;
         justify-content: space-between;
         gap: 15px;
-        
 
         &__result {
             display: flex;
@@ -70,6 +69,7 @@
     @media screen and (min-width: 500px) and (max-width: 1050px){
         width: 100%;
         margin: 0 auto;
+        height: fit-content;
         &__title {
             margin: 0 auto;
             display: block;
@@ -83,10 +83,19 @@
         &__calculator{
             width: 480px;
             max-width: 480px;
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
             gap: 300px;
-            margin: 0 auto;
+            margin: 20px auto;
+        }
+    }
+    @media screen and (min-width: 1051px) and (max-width: 1590px) {
+        &__calculator {
+            flex-direction: column;
+            margin-left: 0;
+            gap: 100px;
+            height: fit-content;
         }
     }
 }
